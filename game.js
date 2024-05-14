@@ -55,41 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const difficulty = difficultySelect.value; // 获取选中的难度系数
       startGame(difficulty); // 调用 startGame 函数并传递难度系数
     });
-  });
+});
   
-//   const startGame = (difficulty) => {
-//     console.log(`Starting game with difficulty: ${difficulty}`);
-//     // 根据难度系数调整游戏设置
-//     difficultyLevel = difficulty;
-//     window.requestAnimationFrame(main);
-//     // 隐藏开始菜单
-//     document.getElementById('start-menu').style.display = 'none';
-//     // 根据难度调整游戏逻辑，例如蛇的速度等
-//   };
-
+// you need to finish the startGame to set difficulty at the beginning
 const startGame = (difficulty) => {
     console.log(`Starting game with difficulty: ${difficulty}`);
     // 根据难度系数调整游戏设置
-
-    switch (difficulty) {
-      case '1': // 简单难度
-        BASE_SNAKE_SPEED = 5;
-        break;
-      case '2': // 中等难度
-        BASE_SNAKE_SPEED = 10;
-        break;
-      case '3': // 困难难度
-        BASE_SNAKE_SPEED = 15;
-        break;
-    }
-    
+    difficultyLevel = difficulty;
+    window.requestAnimationFrame(main);
     // 隐藏开始菜单
     document.getElementById('start-menu').style.display = 'none';
-    // 开始游戏循环
-    window.requestAnimationFrame(main);
+    // 根据难度调整游戏逻辑，例如蛇的速度等
 };
-  
 
+  
 const update = () => {
     // check if the snake has died
     gameOver = checkDeath();
