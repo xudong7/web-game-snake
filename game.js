@@ -10,7 +10,6 @@ let SNAKE_SPEED = BASE_SNAKE_SPEED * difficultyLevel;
 const gameBoard = document.getElementById("game-board");
 
 const main = (currentTime) => {
-
     // Check if the player has lost
     if (gameOver) {
         if (confirm("You lost. Press ok to restart.")) {
@@ -48,8 +47,48 @@ const main = (currentTime) => {
     draw();
 };
 
-// setInterval(main, 1000 / SNAKE_SPEED);
-window.requestAnimationFrame(main);
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('start-button');
+    const difficultySelect = document.getElementById('difficulty-select');
+    
+    startButton.addEventListener('click', () => {
+      const difficulty = difficultySelect.value; // 获取选中的难度系数
+      startGame(difficulty); // 调用 startGame 函数并传递难度系数
+    });
+  });
+  
+//   const startGame = (difficulty) => {
+//     console.log(`Starting game with difficulty: ${difficulty}`);
+//     // 根据难度系数调整游戏设置
+//     difficultyLevel = difficulty;
+//     window.requestAnimationFrame(main);
+//     // 隐藏开始菜单
+//     document.getElementById('start-menu').style.display = 'none';
+//     // 根据难度调整游戏逻辑，例如蛇的速度等
+//   };
+
+const startGame = (difficulty) => {
+    console.log(`Starting game with difficulty: ${difficulty}`);
+    // 根据难度系数调整游戏设置
+
+    switch (difficulty) {
+      case '1': // 简单难度
+        BASE_SNAKE_SPEED = 5;
+        break;
+      case '2': // 中等难度
+        BASE_SNAKE_SPEED = 10;
+        break;
+      case '3': // 困难难度
+        BASE_SNAKE_SPEED = 15;
+        break;
+    }
+    
+    // 隐藏开始菜单
+    document.getElementById('start-menu').style.display = 'none';
+    // 开始游戏循环
+    window.requestAnimationFrame(main);
+};
+  
 
 const update = () => {
     // check if the snake has died
@@ -76,3 +115,4 @@ const checkNextLevel = () => {
     // check if the snake has reached the next level
     return snakeBody.length === LENGTH_TO_NEXT_LEVEL;
 }
+

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  <title>Snake</title>
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="snake.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,6 +15,15 @@
     <script src="game.js" defer></script>
   </head>
   <body>
+    <div id="start-menu">
+      <h1 class="text">Snake Game</h1>
+      <button id="start-button">Start Game</button>
+      <select id="difficulty-select">
+        <option value="1">Simple</option>
+        <option value="2">Normal</option>
+        <option value="3">Hard</option>
+      </select>
+    </div>
     <div id="game-board"></div>
   </body>
 </html>

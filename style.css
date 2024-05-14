@@ -10,11 +10,37 @@ body {
   background-color: gray;
 }
   
+#start-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  /* width: 100vmin;
+  height: 100vmin; */
+}
+
+#start-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.text {
+  color:blanchedalmond;
+}
+
 #game-board {
-  /* background-color: black; */
-  /* background-color: white; */
-  background-image: url('../intro/images/bocchi.png');
-  background-size: cover;
+  background-image: url('../intro/images/menu.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); 
 
   width: 100vmin;
   height: 100vmin;
@@ -23,8 +49,14 @@ body {
   grid-template-columns: repeat(21, 1fr);
 }
 
+#difficulty-select {
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .snake {
-  background-image: url('../intro/images/icon.jpg');
+  background-image: url('snake.ico');
   background-size: cover;
   border: 0.25vmin solid gray;
   
@@ -33,7 +65,7 @@ body {
 }
 
 .food {
-  background-image: url('../intro/images/icon.jpg');
+  background-image: url('snake.ico');
   background-size: cover;
   border: 0.25vmin solid gray;
 
