@@ -47,25 +47,40 @@ const main = (currentTime) => {
     draw();
 };
 
+const difficultySelect = document.getElementById('difficulty-select');
+
+difficultySelect.addEventListener('change', function() {
+    const selectedDifficulty = this.value;
+  
+    switch (selectedDifficulty) {
+      case '1':
+        difficultyLevel = 1; 
+        break;
+      case '2':
+        difficultyLevel = 2; 
+        break;
+      case '3':
+        difficultyLevel = 3; 
+        break;
+      default:
+        difficultyLevel = 1; 
+    }
+
+    SNAKE_SPEED = BASE_SNAKE_SPEED * difficultyLevel;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
-    const difficultySelect = document.getElementById('difficulty-select');
     
     startButton.addEventListener('click', () => {
-      const difficulty = difficultySelect.value; // 获取选中的难度系数
-      startGame(difficulty); // 调用 startGame 函数并传递难度系数
+      startGame(); 
     });
 });
   
-// you need to finish the startGame to set difficulty at the beginning
-const startGame = (difficulty) => {
-    console.log(`Starting game with difficulty: ${difficulty}`);
-    // 根据难度系数调整游戏设置
-    difficultyLevel = difficulty;
+
+const startGame = () => {
     window.requestAnimationFrame(main);
-    // 隐藏开始菜单
     document.getElementById('start-menu').style.display = 'none';
-    // 根据难度调整游戏逻辑，例如蛇的速度等
 };
 
   
